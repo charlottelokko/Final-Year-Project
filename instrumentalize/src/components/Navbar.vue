@@ -8,8 +8,8 @@
         <li class="pure-menu-item">
           <router-link to="/Mix">Mix</router-link>
         </li>
-        <li class="pure-menu-item">
-            <router-link to="/Listen">Listen</router-link>
+        <li class="pure-menu-item"> 
+          <router-link to="/Listen">Listen</router-link>
         </li>
         <li class="pure-menu-item">
           <router-link to="/About">About</router-link>
@@ -18,7 +18,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
