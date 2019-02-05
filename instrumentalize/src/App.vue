@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <router-link/>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view /> -->
+    <router-view />
   </div>
 </template>
+
+
 
 <style lang="scss">
 #app {
@@ -31,12 +28,12 @@
 </style>
 
 <script>
-import Navbar from '@/components/Navbar'
-export default{
-  name: 'App',
+import Navbar from "@/components/Navbar";
+export default {
+  name: "App",
   components: {
-     Navbar
+    Navbar
   }
-}
-
+};
 </script>
+
