@@ -8,7 +8,7 @@
         <li class="pure-menu-item">
           <router-link to="/Mix">Mix</router-link>
         </li>
-        <li class="pure-menu-item"> 
+        <li class="pure-menu-item">
           <router-link to="/Listen">Listen</router-link>
         </li>
         <li class="pure-menu-item">
