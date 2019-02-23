@@ -6,6 +6,8 @@
 </template> -->
 
 <template>
+<!-- eslint-disable --> 
+
     <div id="page-wrap">
 			<div id="controls" class="panel">
 				<div class="strip dark">
@@ -19,11 +21,11 @@
 				</div>				
 				<div class="stripTransport">
 					<button v-on:click="playSound" disabled>Play</button>
-					<button onclick="stopSound()" disabled>Stop</button>
+					<button v-on:click="stopSound" disabled>Stop</button>
 				</div>				
 				<div class="strip">
 					<div class="stripSection">
-						<p class="label"><h3>Ch 1</h3></p>
+						<p class="label">Ch 1</p>
 					</div>				
 					<div class="stripSection">			
 						<p class="knobContainer label"><span class="green">Gain</span>
@@ -63,7 +65,7 @@
 				</div>
 				<div class="strip">
 					<div class="stripSection">
-						<p class="label"><h3>Ch 2</h3></p>
+						<p class="label">Ch 2</p>
 					</div>				
 					<div class="stripSection">			
 						<p class="knobContainer label"><span class="green">Gain</span>
@@ -103,7 +105,7 @@
 				</div>
 				<div class="strip">
 					<div class="stripSection">
-						<p class="label"><h3>Ch 3</h3></p>
+						<p class="label">Ch 3</p>
 					</div>				
 					<div class="stripSection">			
 						<p class="knobContainer label"><span class="green">Gain</span>
@@ -143,7 +145,7 @@
 				</div>
 				<div class="strip">
 					<div class="stripSection">
-						<p class="label"><h3>Ch 4</h3></p>
+						<p class="label">Ch 4</p>
 					</div>				
 					<div class="stripSection">			
 						<p class="knobContainer label"><span class="green">Gain</span>
@@ -283,62 +285,84 @@ var distortion = null;
 var reverb = null;
 var delay = null;
 
+var impulse = null;
+
 
 export default {
   methods: {
     playSound() {
-	source1 = context.createBufferSource(); // Create a sound source 1
-	source1.buffer = audioBuffer1; // Add the buffered data to our object
-	source1.loop = true; // Make it loop
-	source1.connect(gain_1);
-	source1.start(0); // Play immediately
+      source1 = context.createBufferSource(); // Create a sound source 1
+      source1.buffer = audioBuffer1; // Add the buffered data to our object
+      source1.loop = true; // Make it loop
+      source1.connect(gain_1);
+      source1.start(0); // Play immediately
 
-	source2 = context.createBufferSource(); // Create a sound source 2 if it exists
-	source2.buffer = audioBuffer2; // Add the buffered data to our object
-	source2.loop = true; // Make it loop
-	source2.connect(gain_2);
-	source2.start(0); // Play immediately
+      source2 = context.createBufferSource(); // Create a sound source 2 if it exists
+      source2.buffer = audioBuffer2; // Add the buffered data to our object
+      source2.loop = true; // Make it loop
+      source2.connect(gain_2);
+      source2.start(0); // Play immediately
 
-	source3 = context.createBufferSource(); // Create a sound source 3 if it exists
-	source3.buffer = audioBuffer3; // Add the buffered data to our object
-	source3.loop = true; // Make it loop
-	source3.connect(gain_3);
-	source3.start(0); // Play immediately
- 
-	source4 = context.createBufferSource(); // Create a sound source 4 if it exists
-	source4.buffer = audioBuffer4; // Add the buffered data to our object
-	source4.loop = true; // Make it loop
-	source4.connect(gain_4);
-	source4.start(0); // Play immediately
+      source3 = context.createBufferSource(); // Create a sound source 3 if it exists
+      source3.buffer = audioBuffer3; // Add the buffered data to our object
+      source3.loop = true; // Make it loop
+      source3.connect(gain_3);
+      source3.start(0); // Play immediately
+    
+      source4 = context.createBufferSource(); // Create a sound source 4 if it exists
+      source4.buffer = audioBuffer4; // Add the buffered data to our object
+      source4.loop = true; // Make it loop
+      source4.connect(gain_4);
+      source4.start(0); // Play immediately
+      
+      reverb = context.createBufferSource(); // Create an reverb sound source
+      reverb.buffer = impulse; // Attatch our Audio impulse Data as it's Buffer
+      reverb.normalize = true; // Perform a scaled RMS-power analysis of the audio data in buffer to calculate a normalizationScale
+      // reverb.loop = true; // Make it loop. is this needed ???
+      reverb.start(0); // Play the Impulse Sound Immediately
+
+      // Duplicate these functions so settings are remembered if stop button is pressed	
+      $(function () {
+        document.getElementById('delayTime').addEventListener('change', function() {
+          delay.delayTime.value = this.value;
+        });
+      })
+      $(function () {
+        document.getElementById('delayFeedback').addEventListener('change', function() {
+          delayFeedback.gain.value = this.value;
+        });
+      })
+      $(function () {
+        document.getElementById('delayFilter').addEventListener('change', function() {
+          delayFilter.frequency.value = this.value;
+        });
+      })
+      $(function () {
+        document.getElementById('delayLevel').addEventListener('change', function() {
+          send2.gain.value = this.value;
+        });
+      })
+    },
+    stopSound(){
+      function stopSound() {
+      delayFeedback.gain.value = 0;
+      delayFilter.frequency.value = 0;
 	
-	reverb = context.createBufferSource(); // Create an reverb sound source
-	reverb.buffer = impulse; // Attatch our Audio impulse Data as it's Buffer
-	reverb.normalize = true; // Perform a scaled RMS-power analysis of the audio data in buffer to calculate a normalizationScale
-	// reverb.loop = true; // Make it loop. is this needed ???
-	reverb.start(0); // Play the Impulse Sound Immediately
+        if (source1) {
+          source1.stop(0); // Stop source 1 immediately
+        }
+        if (source2) {
+          source2.stop(0); // Stop source 2 immediately
+        }
+        if (source3) {
+          source3.stop(0); // Stop source 3 immediately
+        } 
+        if (source4) {
+          source4.stop(0); // Stop source 4 immediately
+        }   
+      }
 
-	// Duplicate these functions so settings are remembered if stop button is pressed	
-	$(function () {
-		document.getElementById('delayTime').addEventListener('change', function() {
-			delay.delayTime.value = this.value;
-		});
-	})
-	$(function () {
-		document.getElementById('delayFeedback').addEventListener('change', function() {
-			delayFeedback.gain.value = this.value;
-		});
-	})
-	$(function () {
-		document.getElementById('delayFilter').addEventListener('change', function() {
-			delayFilter.frequency.value = this.value;
-		});
-	})
-	$(function () {
-		document.getElementById('delayLevel').addEventListener('change', function() {
-			send2.gain.value = this.value;
-		});
-	})
-},
+    },
     
   },
    mounted() {
@@ -1024,7 +1048,7 @@ function initSound1(arrayBuffer) {
   }); 
 }
 // Read user selected file as ArrayBuffer and pass it to the API
-var fileInput1 = document.querySelector('#inputSource1');
+var fileInput1 = document.querySelector('#inputSource1');n
 fileInput1.addEventListener('change', function(e) {  
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -1095,25 +1119,6 @@ fileInput4.addEventListener('change', function(e) {
   };
   reader.readAsArrayBuffer(this.files[0]);
 }, false);
-
-
-function stopSound() {
-    delayFeedback.gain.value = 0;
-    delayFilter.frequency.value = 0;
-	
-  if (source1) {
-    source1.stop(0); // Stop source 1 immediately
-  }
-  if (source2) {
-    source2.stop(0); // Stop source 2 immediately
-  }
-  if (source3) {
-    source3.stop(0); // Stop source 3 immediately
-  } 
-  if (source4) {
-    source4.stop(0); // Stop source 4 immediately
-  }   
-}
 
 // Create Audio Nodes
 gain_1 = context.createGain(); // Create source gain node for channel 1
