@@ -35,7 +35,6 @@ function preload(){
     song = loadSound(URL.createObjectURL(event.target.files[0]));
     }
 }
-var button;
 
 function setup(){
     // var canvas=createCanvas(windowWidth,300);
