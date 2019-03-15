@@ -1,9 +1,13 @@
+var __audioSynth = null;
+var container = null;
+var note;
+var octave;
 function AudioSynthView() {
 
 	var isMobile = !!navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
 	if(isMobile) { var evtListener = ['touchstart', 'touchend']; } else { var evtListener = ['mousedown', 'mouseup']; }
 
-	var __audioSynth = new AudioSynth();
+	__audioSynth = new AudioSynth();
 	__audioSynth.setVolume(0.5);
 	var __octave = 4;
 	
@@ -233,7 +237,7 @@ function AudioSynthView() {
 		window.addEventListener(evtListener[1], function() { n = keysPressed.length; while(n--) { fnRemoveKeyBinding({keyCode:keysPressed[n]}); } });
 	
 	};
-
+	var b = false;
 	// Creates our audio player
 	var fnPlayNote = function(note, octave) {
 
@@ -245,9 +249,95 @@ function AudioSynthView() {
 		container.setAttribute('type', 'audio/wav');
 		/*document.body.appendChild(container);*/
 		container.load();
+		//Triggering buttons 
+		console.log(note,octave);
+		parse(note,octave);
+		var star = document.getElementById("Start");
+		var stahp =  document.getElementById("Stop");
+		star.onclick = function(){arr = []; b=false};
+		stahp.onclick = function(){b=true; intoTextBox(); $("yMusic").click(function(){});};
+		console.log(b);
+
 		return container;
-	
 	};
+	//parse string
+	var arr = [];
+	function parse(note, octave){
+		var n = note.toString();
+		var o = octave.toString();
+		var str =  n + o;
+		arr.push(str);
+		console.log("Parse     " + arr);
+		var s1,fnote;
+		if(b==false){
+			//console.log("I'm here!! ")
+			arr.forEach(function (note, i) {
+				if(note.match("[A-G]2")){
+					s1 = note.charAt(0);
+					fnote =  s1 + ",,";
+					arr[i] = fnote;
+				} 			
+				if(note.match("[A-G]#2")){
+					s1 = note.charAt(0);
+					fnote = "^" + s1 + ",,";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]3")){
+					s1 = note.charAt(0);
+					fnote = s1 + ",";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]#3")){
+					s1 = note.charAt(0);
+					fnote =  "^" + s1 + ",";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]4")){
+					s1 = note.charAt(0);
+					fnote =  s1;
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]#4")){
+					s1 = note.charAt(0);
+					fnote =  "^" + s1;
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]5")){
+					s1 = note.charAt(0);
+					fnote =  s1 + "'";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]#5")){
+					s1 = note.charAt(0);
+					fnote =  "^" + s1 + "'";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]6")){
+					s1 = note.charAt(0);
+					fnote =  s1 + "''";
+					arr[i] = fnote;
+				}
+				if(note.match("[A-G]#6")){
+					s1 = note.charAt(0);
+					fnote =  "^" + s1 + "''";
+					arr[i] = fnote;
+				}
+
+			});
+			console.log(arr);
+		}
+		return arr;
+	}
+	//place into textbox
+	function intoTextBox(){
+		console.log("anything like blaa");
+		var texty = document.getElementById("abc");
+		//texty = texty.value = " ";
+		texty.value = ("T:Your Title\nM: 4/4\nL: 1/4\nQ: 1/4=100\nK: C\n") + arr.join(" ");
+		
+		console.log(arr);
+	}
+
 
 	// Detect keypresses, play notes.
 
