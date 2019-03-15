@@ -15,6 +15,7 @@
   <script src="./js/audiosynth.js"></script>
   <script src="./js/audiosynth.view.js"></script>
   <script src="./js/loadTrack.js"></script>
+  <script src="./js/effects.js"></script>
   <!-- <script src="./js/recorder.js"></script> -->
 
   <!-- Font Awesome Icons -->
@@ -101,7 +102,7 @@
   <!-- Navigation -->                            
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Instrumentalise?</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Instrumentalise</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -114,10 +115,13 @@
             <a class="nav-link js-scroll-trigger" href="#landR">Read, Write, Listen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Sound Analysis</a>
+            <a class="nav-link js-scroll-trigger" href="#sAnalysis">Sound Analysis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#effects">Effects</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#About">About</a>
           </li>
         </ul>
       </div>
@@ -129,8 +133,8 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold" >Instrumentalise?</h1>
-          <h1 class="text-uppercase text-white font-weight-bold">Your new music creation station</h1>
+          <h1 class="text-uppercase text-white font-weight-bold" >Instrumentalise</h1>
+          <h1 class="text-uppercase text-white font-weight-bold">Your new music creation/exploration station</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
@@ -225,9 +229,7 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
                 </div>
           </div>
         </div>
-      </div>
-
-        
+      </div>       
         <hr />
         <div id="midi"></div>
         <div id="midi-download"></div>
@@ -275,7 +277,34 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
     </div>
   </section>
 
-  <section class="page-section bg-dark text-white">
+  <!-- Sound Analysis Section -->
+  <section class="page-section bg-dark text-white" id="sAnalysis">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary"  style="margin-left:80%" data-toggle="modal" data-target="#infoModal">Info. Please Read. </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sound Analysis File Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"class="row justify-content-center">
+          <p style="color:black;text-align: center">Unfortunately, sound playback in this application does not apply to a midi file.</p>
+          <p style="color:black;text-align: center">This means that your creation won't work unless you convert it.</p>              
+          <a style="align-self: center"href="https://audio.online-convert.com/convert/midi-to-mp3"  target="_blank">Please click here if you want to convert it.</a>
+          <br>
+          <p style="color:black; text-align: center">Note. You will be directed to another website</p> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
       <div class="container text-center">
         <h2 class="mb-4">Sound Analysis</h2>
         <hr class="divider my-4">
@@ -290,68 +319,45 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
             <!-- <button id="pause">Pause</button> -->
             <div id = "FFT"></div>
         </div>
-        <div class="card-body">
+        <!-- <div class="card-body">
             <h3 class="card-title">Amplitude </h3>
             <div id = "Ampy"></div>
-        </div>
+        </div> -->
   </section>
 
-  <!-- portfolio Section -->
-  <!-- <section id="portfolio">
-    <div class="page-section bg-primary">
-       
-        <div>
-            <p>Upload an audio file:</p>
-
-            <input id="audioFile" class="btn btn-primary" type="file">
-        </div>
-      <div class="card text-center">
-        <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" href="#fft">Active tab</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#amp">Tab</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">FFT Graph</h4>
-          <div id = "FFT">
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </section> -->
-
-  <!-- Call to Action Section
-  <section class="page-section bg-dark text-white">
+  <!-- Effects Section -->
+  <section class="page-section bg-primary text-white" id="effects">
     <div class="container text-center">
-      <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-      <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
+      <h2 class="mb-4">Effects</h2>
+      <div id="buttonsPls"></div>
+      <div id="pan"></div>
     </div>
-  </section> -->
+  </section>
 
   <!-- Contact Section -->
-  <section class="page-section" id="contact">
+  <section class="page-section" id="About">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">My Contact Infomation</h2>
+          <h2 class="mt-0">About</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-5">If you'd like to contact me please see my information below.</p>
+          <p class="text-muted mb-5">If you'd like to contact me please email using my information below.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 ml-auto text-center">
-          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>353-851035670</div>
+          <div>
+          <!-- <i class="fas fa-phone fa-3x mb-3 text-muted"></i> -->
+          <img src="./img/MULogo.png" style="height: 7vh;">
+          <br>
+          <br>
+          <a class="d-block">This is my Final Year Project for Maynooth University</a>
+        </div>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-          <!-- Make sure to change the email address in anchor text AND the link below! -->
+          <br>
+          <br>
           <a class="d-block" href="mailto:charlotte.lokko.2015@mumail.ie">charlotte.lokko.2015@mumail.ie</a>
         </div>
       </div>
