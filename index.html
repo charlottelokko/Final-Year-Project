@@ -198,9 +198,9 @@
             </h5>
           </div>
           <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
-            <div class="card-body">
-              <p>Examples use L: 1/4</p>              
-            </div>
+            <br>
+            <p style="font-family: sans-serif; font-style: italic;margin-left: 2%">Examples use L: 1/4</p>              
+            
             <div class="card-columns">
               <div class="card">
                 <div class="card-body">
@@ -312,7 +312,9 @@
                         </table> 
                   </div>
               </div>
-              <div class="card">
+            </div>
+           
+              <div class="card w-50 d-inline-block" style="float:left; max-height: 50%;overflow-y:auto;">
                 <div class="card-body">
                     <table class="tg">
                         <tr>
@@ -368,7 +370,7 @@
                       </table> 
                 </div>
               </div>
-              <div class="card">
+              <div class="card w-50 d-inline-block" style="float:right; max-height: 50%;overflow-y:auto">
                   <div class="card-body">
                       <table class="tg">
                           <tr>
@@ -419,6 +421,7 @@
                         </table> 
                   </div>
                 </div>
+            
           </div>
         </div>
         <div class="card">
@@ -498,10 +501,10 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
   <!-- Sound Analysis Section -->
   <section class="page-section bg-dark text-white" id="sAnalysis">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary"  style="margin-left:80%" data-toggle="modal" data-target="#infoModal">Info. Please Read. </button>
+    <!-- <button type="button" class="btn btn-primary"  style="margin-left:80%" data-toggle="modal" data-target="#infoModal">Info. Please Read. </button> -->
   
   <!-- Modal -->
-  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -522,10 +525,18 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
       <div class="container text-center">
         <h2 class="mb-4">Sound Analysis</h2>
         <hr class="divider my-4">
+        <h5 class="modal-title">Sound Analysis File Info</h5>
+      
+      <div class="modal-body"class="row justify-content-center">
+        <p style="color:whitesmoke;text-align: center">Unfortunately, sound playback in this application does not apply to a midi file.</p>
+        <p style="color:whitesmoke;text-align: center">This means that your creation won't work unless you convert it.</p>              
+        <a style="text-align: center"href="https://audio.online-convert.com/convert/midi-to-mp3"  target="_blank">Please click here if you want to convert it.</a>
+        <p style="color:whitesmoke; text-align: center; font-weight: lighter; font-size: 1.8vh;font-style: italic;">Note. You will be directed to another website</p> 
+      </div>
         <div>
           <p>Upload an audio file:</p>
           <input id="audioFile" class="btn btn-secondary" type="file">
@@ -537,10 +548,6 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
             <!-- <button id="pause">Pause</button> -->
             <div id = "FFT"></div>
         </div>
-        <!-- <div class="card-body">
-            <h3 class="card-title">Amplitude </h3>
-            <div id = "Ampy"></div>
-        </div> -->
   </section>
 
   <!-- Effects Section -->

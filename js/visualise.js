@@ -1,6 +1,6 @@
 var fft, song;
 
-//Load our song
+//Load the song
 function preload(){
     document.getElementById("audioFile").onchange = function(event){
     if(event.target.files[0]){
@@ -43,6 +43,7 @@ function setup(){
    
 
 }
+
 function togglePlaying(){
     
     if(!song.isPlaying() && typeof song != "undefined" && song.isLoaded()){
@@ -53,12 +54,15 @@ function togglePlaying(){
     }
     
 }
+
 function toggleReverb(){
    
     reverb = new p5.Reverb();
     song.disconnect();
-    reverb.process(song,3,2);
+    reverb.process(song,3,2); //reverbTime 3 decs, decay rate 2%
+    reverb.amp(3);
 }
+
 
 function toggleRoff(){
     song.disconnect();
@@ -83,9 +87,6 @@ function tFilterB(){
 }
 
 function draw(){
-    // if(typeof song != "undefined" && song.isLoaded() && !song.isPlaying()){
-    //     song.play();
-    // }
     background(0);
     
     //Spectrum 
@@ -118,6 +119,8 @@ function draw(){
     }
     endShape();
     
+
+    //Styling the buttons
     colour = '#f47442';
     aRevb.style('background-color', colour);
     aRevb.style('border-color', colour);
