@@ -1,7 +1,7 @@
 var audioCtx = new AudioContext(); 
 var dest = audioCtx.createMediaStreamDestination();
 var recorder = new MediaRecorder(dest.stream);
-const audio = document.getElementById('playBack');
+let audio = document.getElementById('playBack');
 
 var rec = document.getElementById("rec");
 var stop = document.getElementById("stop");
