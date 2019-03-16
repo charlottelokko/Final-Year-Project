@@ -1,24 +1,3 @@
-
-// function preload(){
-//     //sound = loadSound(file);
-//     sound = loadSound('../SoundDownloads/05.The Other Side.mp3');
-//     console.log(sound);
-// }
-
-// function setup(){
-//     cnv=createCanvas(600,200);
-//     cnv.parent('FFT');
-//     sound.play();
-//     background(0);
-//     fill(255);
-//     amplitude = new p5.Amplitude();
-// }
-// function draw(){
-//     var level = amplitude.getLevel();
-//     var size = map(level, 0, 1, 0, 400);
-//     ellipse(width/2, height/2, size, size);
-// }
-
 var fft, song;
 
 //Load our song
@@ -140,7 +119,57 @@ function draw(){
     endShape();
     
     colour = '#f47442';
-    aRevb.style('font-family', 'Ariel');
     aRevb.style('background-color', colour);
+    aRevb.style('border-color', colour);
+    aRevb.style('border-radius','8px');
+    aRevb.style('box-shadow', '0px 10px 14px -7px #276873');
+    aRevb.style('background-color', colour);
+    aRevb.style('margin', '0.5%');
+    aRevb.style('font-size','18px');
+    aRevb.style('font-family','cursive');
+    aRevb.style('display','inline-block');
+
+    filterL.style('background-color', colour);
+    filterL.style('border-color', colour);
+    filterL.style('border-radius','8px');
+    filterL.style('box-shadow', '0px 10px 14px -7px #276873');
+    filterL.style('background-color', colour);
+    filterL.style('margin', '0.5%');
+    filterL.style('font-size','18px');
+    filterL.style('font-family','cursive');
+    filterL.style('display','inline-block');
+
+    filterB.style('background-color', colour);
+    filterB.style('border-color', colour);
+    filterB.style('border-radius','8px');
+    filterB.style('box-shadow', '0px 10px 14px -7px #276873');
+    filterB.style('background-color', colour);
+    filterB.style('margin', '0.5%');
+    filterB.style('font-size','18px');
+    filterB.style('font-family','cursive');
+    filterB.style('display','inline-block');
+
+    filterH.style('background-color', colour);
+    filterH.style('border-color', colour);
+    filterH.style('border-radius','8px');
+    filterH.style('box-shadow', '0px 10px 14px -7px #276873');
+    filterH.style('background-color', colour);
+    filterH.style('margin', '0.5%');
+    filterH.style('font-size','18px');
+    filterH.style('font-family','cursive');
+    filterH.style('display','inline-block');
+
+    stopPly.style('background-color', colour);
+    stopPly.style('border-color', colour);
+    stopPly.style('border-radius','8px');
+    stopPly.style('box-shadow', '0px 10px 14px -7px #276873');
+    stopPly.style('background-color', colour);
+    stopPly.style('margin', '0.5%');
+    stopPly.style('font-size','18px');
+    stopPly.style('font-family','cursive');
+    stopPly.style('display','inline-block');
+
 }
+
+
 
