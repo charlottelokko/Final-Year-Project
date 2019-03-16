@@ -188,6 +188,7 @@
     <div class="container">
       <h2 class="text-center mt-0">Read, Write, Listen</h2>
       <hr class="divider my-4">
+      <p style="color:black; text-align: center; font-size: 2vh;font-style: italic;">Note.You need to click in the abc notation box to update the score</p> 
       <div id="helpBox" role="tablist" aria-multiselectable="true">
         <div class="card">
           <div class="card-header" role="tab" id="section1HeaderId">
@@ -204,7 +205,7 @@
             <div class="card-columns">
               <div class="card">
                 <div class="card-body">
-                    <table class="tg">
+                    <table class="tg" style="width: 100%">
                         <tr>
                           <th class="tg-s6z2">Header info</th>
                           <th class="tg-s6z2">Examples</th>
@@ -234,7 +235,7 @@
               </div>
               <div class="card">
                 <div class="card-body">
-                    <table class="tg">
+                    <table class="tg" style="width: 100%">
                         <tr>
                           <th class="tg-s6z2">Notes</th>
                           <th class="tg-s6z2">abc Notation</th>
@@ -500,32 +501,6 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
 
   <!-- Sound Analysis Section -->
   <section class="page-section bg-dark text-white" id="sAnalysis">
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary"  style="margin-left:80%" data-toggle="modal" data-target="#infoModal">Info. Please Read. </button> -->
-  
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Sound Analysis File Info</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body"class="row justify-content-center">
-          <p style="color:black;text-align: center">Unfortunately, sound playback in this application does not apply to a midi file.</p>
-          <p style="color:black;text-align: center">This means that your creation won't work unless you convert it.</p>              
-          <a style="align-self: center"href="https://audio.online-convert.com/convert/midi-to-mp3"  target="_blank">Please click here if you want to convert it.</a>
-          <br>
-          <p style="color:black; text-align: center">Note. You will be directed to another website</p> 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
       <div class="container text-center">
         <h2 class="mb-4">Sound Analysis</h2>
         <hr class="divider my-4">
@@ -543,8 +518,8 @@ E2 EE2G, E2|^D2 ^D^D2G, ^D2|G2 G=D GG, DA|B2 A^C GE G,A|
         </div>
       </div>
         <div class="card-body">
-            <h3 class="card-title">FFT Spectrogram</h3>
-            <p>Click the box to play/pause the track</p>
+            <h3 class="card-title" style="margin-left: 2%">FFT Spectrogram</h3>
+            <p style="font-style:italic;margin-left:2%">Click the box to play/pause the track</p>
             <!-- <button id="pause">Pause</button> -->
             <div id = "FFT"></div>
         </div>

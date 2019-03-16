@@ -255,7 +255,7 @@ function AudioSynthView() {
 		var star = document.getElementById("Start");
 		var stahp =  document.getElementById("Stop");
 		star.onclick = function(){arr = []; b=false};
-		stahp.onclick = function(){b=true; intoTextBox(); $("yMusic").click(function(){});};
+		stahp.onclick = function(){b=true; intoTextBox();};
 		console.log(b);
 
 		return container;
