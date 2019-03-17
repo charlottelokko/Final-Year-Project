@@ -334,7 +334,7 @@ function AudioSynthView() {
 		var texty = document.getElementById("abc");
 		//texty = texty.value = " ";
 		texty.value = ("T:Your Title\nM: 4/4\nL: 1/4\nQ: 1/4=100\nK: C\n") + arr.join(" ");
-		
+		texty.dispatchEvent(new Event('change'));
 		console.log(arr);
 	}
 
